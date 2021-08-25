@@ -114,6 +114,19 @@ app.get("/stock/:id?", (req, res) => {
   }
 });
 
+app.post("/products", (req, res) => {
+  const { id, title, price, image } = req.body;
+  products.push({ id, title, price, image });
+  return res.json(products);
+});
+
+app.post("/stock", (req, res) => {
+  const { id, amount } = req.body;
+  console.log(req.body);
+  stock.push({ id, amount });
+  return res.json(stock);
+});
+
 // app.put("/projects/:id", (req, res) => {
 //   const { id } = req.params;
 //   const { title, owner } = req.body;
